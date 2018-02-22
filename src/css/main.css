@@ -1,0 +1,26 @@
+html, body, .todo {
+    margin: 0;
+    padding: 0;
+}
+
+ul.todo{
+    margin-top: 22px;
+    margin-bottom: 22px;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+}
+.todo {
+    list-style-type: none;
+}
+
+.todo__input{
+    margin-bottom: 22px;
+}
+
+.todo__item--done {
+    text-decoration: line-through;
+}
+
+div#app{
+  margin-top: 30px;
+}
