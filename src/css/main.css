@@ -19,6 +19,7 @@ ul.todo{
 
 .todo__item--done {
     text-decoration: line-through;
+    color: #80bdff;
 }
 
 div#app{

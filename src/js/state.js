@@ -1,4 +1,4 @@
-import {createStore} from './lib/state';
+import {createStore} from 'redux';
 
 const initialState = {
     todos: [
@@ -46,7 +46,7 @@ const initialState = {
     ]
 };
 
-function todoChangeHandler(state, change) {
+function todoChangeHandler(state = initialState, change) {
     switch(change.type) {
         case 'ADD_TODO':
             state.todos.push({
@@ -55,6 +55,7 @@ function todoChangeHandler(state, change) {
                 done: false
             });
             localStorage.setItem("todos", JSON.stringify(state.todos));
+            return state;
             break;
         case 'TODO_TOGGLE_DONE':
             for(let todo of state.todos) {
@@ -64,6 +65,7 @@ function todoChangeHandler(state, change) {
                 }
             }
             localStorage.setItem("todos", JSON.stringify(state.todos));
+            return state;
             break;
         case 'SELECT_FILTER':
             state.filters.forEach(function(a, b){
@@ -72,9 +74,12 @@ function todoChangeHandler(state, change) {
                 }else{
                     a.checked = false;
                 }
-            });            
+            });
             localStorage.setItem("todos", JSON.stringify(state.todos));
+            return state;
             break;
+        default:
+            return state;
     }
 }
 

@@ -64,7 +64,7 @@ function renderTodos(todoItems) {
 }
 
 function renderTodoItem(todo) {
-    const todoClass = `todo__item todo__item--${todo.done ? 'done' : 'open'}`;
+    const todoClass = `todo__item `;
     return `<div class="${todoClass} custom-control custom-checkbox"
                         ${todo.hidden ? ' hidden' : ''}>
                 <input type="checkbox"
@@ -72,7 +72,7 @@ function renderTodoItem(todo) {
                        id="${todo.id}"
                        data-id="${todo.id}"
                        ${todo.done ? ' checked' : ''}>
-                <label class="custom-control-label"
+                <label class="custom-control-label todo__item--${todo.done ? 'done' : 'open'}"
                        for="${todo.id}">
                        ${todo.text}
                        </label>
